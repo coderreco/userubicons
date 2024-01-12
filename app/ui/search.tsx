@@ -27,7 +27,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
         <Label htmlFor="search" className="mb-2 text-inherit">
           Search
         </Label>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col justify-stretch gap-2">
         <Input
           placeholder={placeholder}
           type="search"
