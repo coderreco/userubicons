@@ -25,14 +25,14 @@ const Hero = () => (
 )
 
 const CallToAction = () => (
-  <div className="flex flex-col items-center justify-center mx-auto">
-    <div className='grid grid-cols-2 gap-8'>
+  <div className="flex flex-col items-center justify-center mx-auto p-4 bg-zinc-900">
+    <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-8'>
       {/* Image left side */}
       <div className='relative col-span-1 w-full'>
         <Image src='/rubicons-cta.jpeg' fill className='object-cover rounded' alt='decorative' />
       </div>
       {/* Text right side with email form */}
-      <div className='flex flex-col items-center sm:items-start justify-center col-span-1'>
+      <div className='flex flex-col items-center sm:items-start justify-center col-span-1 p-8 sm:p-4 md:p-8'>
         <h2 className='text-3xl font-bold text-center sm:text-left mb-2'>Get the full pack</h2>
         <Text>Get the full pack of icons in SVG format. We&apos;ll also send you a new icon every week.</Text>
         <form className='w-full py-2'>
@@ -45,7 +45,7 @@ const CallToAction = () => (
               <Label htmlFor='email'>Email</Label>
               <Input id='email' type='text' placeholder='mail@email.com' />
             </div>
-            <Button type='submit' className='w-full'>Get the full pack</Button>
+            <Button type='submit' className='w-full sm:w-auto'>Get the full pack</Button>
           </Field>
         </form>
       </div>

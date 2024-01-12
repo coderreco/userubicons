@@ -40,7 +40,7 @@ type Icon = {
 const IconCard = ({ icon, color, ...props }: { icon: Icon, color: string }) => {
   // const { size = 24 } = props as { color: string, size: number };
   return (
-    <div className="flex group flex-col items-center justify-center rounded border-[0.25px] cursor-pointer border-slate-300 relative group dark:border-slate-800 p-4">
+    <div className="flex group flex-col items-center justify-center rounded border-[0.25px] cursor-pointer border-slate-300 relative group bg-zinc-800 hover:bg-zinc-600 dark:border-slate-800 p-4">
       <div className="flex items-center justify-center w-full aspect-square">
         <div style={{color: color}} className={`absolute top-1 right-1 w-4 h-4 opacity-0 group-hover:opacity-100 transition`}>
           <CodeIcon />

@@ -24,7 +24,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
   return (
     <div className="relative flex flex-1 flex-shrink-0">
       <Field className="w-full relative">
-        <Label htmlFor="search" className="mb-2">
+        <Label htmlFor="search" className="mb-2 text-inherit">
           Search
         </Label>
         <div className="flex items-center gap-2">

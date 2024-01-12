@@ -63,7 +63,7 @@ export function Label({ className, ...props }: { className?: string } & Headless
       data-slot="label"
       className={clsx(
         className,
-        'select-none text-base/6 text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white'
+        'select-none text-base/6 text-inherit data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white'
       )}
     />
   )
