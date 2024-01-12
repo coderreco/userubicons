@@ -4,10 +4,15 @@ import { useEffect } from "react";
 // Create icon schema
 import { Text } from "./catalyst/text"
 import Search from "./search"
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { unstable_noStore } from "next/cache";
+import { useSearchParams } from 'next/navigation';
 
-const noStore = unstable_noStore
+const CodeIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 18L2 12L8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16 6L22 12L16 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+)
+
 const Icons = [
   {
     name: 'Search',
@@ -35,8 +40,11 @@ type Icon = {
 const IconCard = ({ icon, color, ...props }: { icon: Icon, color: string }) => {
   // const { size = 24 } = props as { color: string, size: number };
   return (
-    <div className="flex flex-col items-center justify-center rounded border-[0.25px] border-slate-300 dark:border-slate-800 p-4">
+    <div className="flex flex-col items-center justify-center rounded border-[0.25px] border-slate-300 relative group dark:border-slate-800 p-4">
       <div className="flex items-center justify-center w-full aspect-square">
+        <div style={{color: color}} className={`absolute top-1 right-1 w-6 h-6`}>
+          <CodeIcon />
+        </div>
         <div style={{color: color}} className={`relative w-6 h-6`}>
           {icon.stroke}
         </div>

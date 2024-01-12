@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 
 export default function Controls() {
   const searchParams = useSearchParams()
-  const params = new URLSearchParams(searchParams)
+
   const { replace } = useRouter()
   const pathname = usePathname()
 
@@ -19,10 +19,13 @@ export default function Controls() {
   // Create a control for the color param
   const leva = useControls({ color: activeColor })
   useEffect(() => {
+    // Get the URLSearchParams object
+    const params = new URLSearchParams(searchParams)
+    // Remove the # from the color
     let newColor = leva.color.replace('#', '')
     // Update the URL with the new color. This will trigger a re-render. We need to remove the # from the color
     params.set('color', newColor)
     replace(`${pathname}?${params.toString()}`)
-  }, [leva])
+  }, [leva, pathname, searchParams, replace])
   return null
 }
