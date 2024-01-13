@@ -4,6 +4,7 @@ import { useControls } from 'leva'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
+
 export default function Controls() {
   const searchParams = useSearchParams()
 
@@ -20,7 +21,7 @@ export default function Controls() {
   let size = Number(searchParams.get('size')) || 24
 
   // Create a control for the color param
-  const leva = useControls({ color: activeColor, size: {value: size, step: 8, min: 16, max: 64, label: 'Size'}})
+  const leva = useControls({ color: activeColor, size: { value: size, step: 8, min: 16, max: 64, label: 'Size' } })
 
   useEffect(() => {
     // Get the URLSearchParams object
