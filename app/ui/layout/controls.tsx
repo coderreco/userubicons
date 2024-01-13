@@ -34,7 +34,7 @@ export default function Controls() {
     params.set('color', newColor)
     params.set('size', size)
 
-    replace(`${pathname}?${params.toString()}`)
+    replace(`${pathname}?${params.toString()}`, { scroll: false })
   }, [leva, pathname, searchParams, replace])
   return null
 }
