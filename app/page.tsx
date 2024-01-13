@@ -25,7 +25,7 @@ const Hero = () => (
 )
 
 const CallToAction = () => (
-  <div className="flex flex-col items-center justify-center mx-auto p-4 bg-zinc-900">
+  <div className="flex flex-col max-w-5xl items-center justify-center mx-auto p-4 bg-zinc-200 dark:bg-zinc-900">
     <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-8'>
       {/* Image left side */}
       <div className='relative col-span-1 w-full'>
