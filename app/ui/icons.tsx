@@ -61,13 +61,13 @@ const IconCard = ({ icon, color, size = '24', ...props }: { icon: Icon, color: s
   }
 
   return (
-    <div className="flex group flex-col items-center justify-center rounded border-[0.25px] cursor-pointer border-slate-300 relative group bg-zinc-200 hover:bg-zinc-300 dark:border-slate-800 p-4">
+    <div className="flex group flex-col items-center justify-center rounded border-[0.25px] cursor-pointer border-slate-300 relative bg-zinc-200 hover:bg-zinc-300 dark:border-slate-800 p-4">
       <div className="flex items-center justify-center w-full aspect-square">
         <div style={{color: color}} onClick={handleCopy} className={`absolute hover:bg-zinc-500 flex items-center rounded-sm border-[0.25px] border-transparent hover:border-zinc-300 justify-center top-1 right-1 w-8 h-8 opacity-0 group-hover:opacity-100 transition`}>
           <CodeIcon />
         </div>
         <div style={{color: color, width: size + 'px', height: size + 'px'}} className={`relative w-6 h-6 transition`}>
-          {createElement('toyota', { dangerouslySetInnerHTML: { __html: icon.stroke } })}
+          {createElement('rubicon', { dangerouslySetInnerHTML: { __html: icon.stroke } })}
         </div>
       </div>
       <Text>{icon.name}</Text>
