@@ -46,15 +46,14 @@ const Icons = [
 
 type Icon = {
   name: string,
-  stroke: string,
-  solid: JSX.Element
+  code: string,
 }
 
 const IconCard = ({ icon, color, size = '24', ...props }: { icon: Icon, color: string, size: string }) => {
   // When the user clicks the icon, copy the SVG code to the clipboard
   const handleCopy = async () => {
     const toastId = toast.loading('Copying to clipboard...')
-    await navigator.clipboard.writeText(icon.stroke)
+    await navigator.clipboard.writeText(icon.code)
     setTimeout(()=>
       toast(Toasted({text: "Copied!", color: color}), { id: toastId })
     , 1000)
@@ -67,7 +66,7 @@ const IconCard = ({ icon, color, size = '24', ...props }: { icon: Icon, color: s
           <CodeIcon />
         </div>
         <div style={{color: color, width: size + 'px', height: size + 'px'}} className={`relative w-6 h-6 transition`}>
-          {createElement('rubicon', { dangerouslySetInnerHTML: { __html: icon.stroke } })}
+          {createElement('rubicon', { dangerouslySetInnerHTML: { __html: icon.code } })}
         </div>
       </div>
       <Text>{icon.name}</Text>
@@ -75,7 +74,7 @@ const IconCard = ({ icon, color, size = '24', ...props }: { icon: Icon, color: s
   )
 } 
 
-export const IconFeed = () => {
+export const IconFeed = ({ icons }:{icons:{name: string, code: string}[]}) => {
   const searchParams = useSearchParams();
   // Get the color param from the URL. If it doesn't exist, use the default color
   let activeColor = searchParams.get('color')?.toString() || "#E68A48"
@@ -88,12 +87,11 @@ export const IconFeed = () => {
   <div className="relative w-full max-w-5xl">
     <Search placeholder="Search icons" />
     <div className="grid grid-cols-[repeat(auto-fill,minmax(8rem,1fr))] gap-x-6 gap-y-4 pb-16 pt-10 sm:pt-11 md:pt-12">
-      {Array.from({ length: 64 }).map((_, i) => (
-        <IconCard key={i} icon={Icons[0]} color={activeColor} size={size} />
+      {icons.map((icon, i) => (
+        <IconCard key={i} icon={icon} color={activeColor} size={size} />
       )
       )}
     </div>
   </div>
   )
 }
-

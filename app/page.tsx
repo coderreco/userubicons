@@ -4,13 +4,22 @@ import { Field, Label } from './ui/catalyst/fieldset'
 import { Input } from './ui/catalyst/input'
 import { Button } from './ui/catalyst/button'
 import { Text } from './ui/catalyst/text'
+import readIcons from '@/readicons'
 
-export default function Home() {
+async function getIcons() { 
+  const icons = await readIcons()
+  return icons
+}
 
+export default async function Home() {
+  // const icons = await fetch('https://raw.githubusercontent.com/bradgarropy/rubicons/main/rubicons.json').then(res => res.json())
+  const icons = await getIcons()
+  console.log(icons)
   return (
-    <main className="flex min-h-screen flex-col items-center py-12 px-8 sm:p-16 md:p-24">
+    <main className="flex min-h-screen flex-col items-center py-12 px-8 sm:p-16 md:p-24 relative">
+      <div className="absolute left-0 w-full h-[50svh] bg-primary/5" />
       <Hero />
-      <IconFeed />
+      <IconFeed icons={icons} />
       <CallToAction />
     </main>
   )
@@ -25,7 +34,7 @@ const Hero = () => (
 )
 
 const CallToAction = () => (
-  <div className="flex flex-col max-w-5xl items-center justify-center mx-auto p-4 bg-zinc-200 dark:bg-zinc-900">
+  <div className="flex flex-col max-w-5xl items-center justify-center mx-auto p-4 bg-zinc-200">
     <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-8'>
       {/* Image left side */}
       <div className='relative col-span-1 w-full'>
@@ -52,3 +61,4 @@ const CallToAction = () => (
     </div>
   </div>
 )
+

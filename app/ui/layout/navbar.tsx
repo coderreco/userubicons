@@ -5,7 +5,7 @@ import Brand from "../brand";
 
 export default function Navbar() {
   return (
-    <div id="navbar-root" className="fixed inset-x-0 top-0 z-50">
+    <div id="navbar-root" className="fixed inset-x-0 top-0 z-50 bg-white/10 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="relative flex items-center justify-between h-16">
           <div className="flex items-center px-2 lg:px-0">
